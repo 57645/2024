@@ -1,0 +1,27 @@
+import json
+
+#load input
+with open('input.txt', 'r') as file:
+    puz_input = file.read().replace("   ", " ").replace("\n", " ").split(" ")
+    puz_input = list(puz_input)
+    puzzle1 = []
+    puzzle2 = []
+
+#split contents to two lists
+    for i in range(len(puz_input)):
+        if int(i) % 2 == 0:
+            puzzle1.append(puz_input[i])
+        else:
+            puzzle2.append(puz_input[i])  
+
+#def variables
+total = 0
+distance = 0
+count = 0
+
+#Part 1 solution
+ for i in range(len(puzzle1)):
+     distance = abs(int(puzzle1[i])-int(puzzle2[i]))
+     total = total + distance
+
+print(total)
